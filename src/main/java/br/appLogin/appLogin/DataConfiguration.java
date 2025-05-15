@@ -18,6 +18,7 @@ public class DataConfiguration {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/applogin?useUnicode=true&characterEncoding=UTF-8");
         dataSource.setUsername("root");
         dataSource.setPassword("Lui$1227");
         return dataSource;
@@ -31,7 +32,7 @@ public class DataConfiguration {
         adapter.setDatabase(Database.MYSQL);
         adapter.setShowSql(true);
         adapter.setGenerateDdl(true);
-        adapter.setDatabasePlatform("org.hibernate.dialect.Maria.DBDialect");
+        adapter.setDatabasePlatform("org.hibernate.dialect.MariaDBDialect");
         adapter.setPrepareConnection(true);
         return adapter;
     }
