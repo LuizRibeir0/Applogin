@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Mundo dos Games</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1e1e2f;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #292b3e;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            color: #3ddc97;
+            font-size: 2.5em;
+        }
+
+        .container {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .intro p {
+            font-size: 1.2em;
+            color: #ccc;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .game-card {
+            background-color: #2c2f4a;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: scale(1.03);
+        }
+
+        .game-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .game-card .info {
+            padding: 15px;
+        }
+
+        .game-card h3 {
+            color: #3ddc97;
+            margin-bottom: 10px;
+        }
+
+        .game-card p {
+            color: #ccc;
+            font-size: 0.95em;
+        }
+
+        footer {
+            background-color: #292b3e;
+            text-align: center;
+            padding: 15px;
+            color: #aaa;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Mundo dos Games</h1>
+</header>
+
+<div class="container">
+    <section class="intro">
+        <p>Descubra os jogos mais populares do momento e fique por dentro do universo gamer.</p>
+    </section>
+
+    <section class="games-grid">
+        <div class="game-card">
+            <img src="images/image1.png" alt="Game 1">
+            <div class="info">
+                <h3>God of War: Ragnarok</h3>
+                <p>Kratos e Atreus enfrentam novos deuses e monstros nórdicos em uma jornada épica.</p>
+            </div>
+        </div>
+        <div class="game-card">
+            <img src="images/image2.png" alt="Game 2">
+            <div class="info">
+                <h3>Mortal Shell</h3>
+                <p>Mortal Shell é um complexo RPG de ação implacável que testa a tua sanidade e resiliência num mundo despedaçado.</p>
+            </div>
+        </div>
+        <div class="game-card">
+            <img src="images/image3.png" alt="Game 3">
+            <div class="info">
+                <h3>Grand Theft Auto VI</h3>
+                <p>O jogo segue Jason Duval, ex-militar que passou a trabalhar para traficantes, e Lucia Caminos, a primeira protagonista feminina obrigatória da série, presa após lutar por sua família em Liberty City.</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    &copy; 2025 Mundo dos Games. Todos os direitos reservados.
+</footer>
+
+</body>
+</html>
