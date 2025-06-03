@@ -20,7 +20,7 @@ public class DataConfiguration {
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/applogin?useUnicode=true&characterEncoding=UTF-8");
         dataSource.setUsername("root");
-        dataSource.setPassword("Lui$1227");
+        dataSource.setPassword("Lui$Jasmim1227");
         return dataSource;
 
     }
