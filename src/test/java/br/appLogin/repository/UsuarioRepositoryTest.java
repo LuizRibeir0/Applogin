@@ -22,15 +22,6 @@ public class UsuarioRepositoryTest {
     private UsuarioRepository usuarioRepository;
 
     @BeforeEach
-    public void setUp(){
-//        Usuario u = new Usuario();  // instancia da classe Usuario
-//        u.setNome("Luiz");
-//        u.setEmail("luiz@gmail.com");
-//        u.setSenha("123");
-//
-//        usuarioRepository.save(u);
-    }
-
     @AfterEach
     public void afterEach() {
         usuarioRepository.deleteAll();

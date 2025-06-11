@@ -51,14 +51,6 @@ public class LoginController {
     }
 
 
-
-
-
-
-
-
-
-
     @GetMapping("/cadastroUsuario")
     public String cadastro () {
         return "cadastro";
