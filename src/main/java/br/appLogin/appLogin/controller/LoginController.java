@@ -21,6 +21,8 @@ import java.io.UnsupportedEncodingException;
 @Controller
 public class LoginController {
 
+    @Autowired
+    private CookieService cookieService;
 
     @Autowired
     private UsuarioRepository ur;
@@ -32,7 +34,7 @@ public class LoginController {
 
     @GetMapping("/")
     public String games (Model model, HttpServletRequest request) throws UnsupportedEncodingException {
-        model.addAttribute("nome", CookieService.getCookie(request, "nomeUsuario"));
+        model.addAttribute("nome", cookieService.getCookie(request, "nomeUsuario"));
         return "index";
     }
 
@@ -40,8 +42,8 @@ public class LoginController {
     public String loginUsuario (Usuario usuario, Model model, HttpServletResponse response) throws UnsupportedEncodingException {
         Usuario user = this.ur.login(usuario.getEmail(), usuario.getSenha());
         if (user != null) {
-            CookieService.setCookie(response,"usuarioId", String.valueOf(user.getId()), 10000);
-            CookieService.setCookie(response,"nomeUsuario", String.valueOf(user.getNome()), 10000);
+            cookieService.setCookie(response,"usuarioId", String.valueOf(user.getId()), 10000);
+            cookieService.setCookie(response,"nomeUsuario", String.valueOf(user.getNome()), 10000);
             return "redirect:/";
         }
 
