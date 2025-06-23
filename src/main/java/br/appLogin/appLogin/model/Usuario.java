@@ -46,4 +46,9 @@ public class Usuario {
     public long getId() {
         return Id;
     }
+
+    public long setId(long id) {
+        Id = id;
+        return id;
+    }
 }
