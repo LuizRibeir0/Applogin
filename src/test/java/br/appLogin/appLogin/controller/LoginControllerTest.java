@@ -42,7 +42,6 @@ class LoginControllerTest {
         when(interceptor.preHandle(any(), any(), any())).thenReturn(true);
     }
 
-
     @Test
     void RetornarPaginaLogin() throws Exception {
         mockMvc.perform(get("/login"))
