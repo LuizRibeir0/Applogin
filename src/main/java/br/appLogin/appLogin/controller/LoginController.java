@@ -4,9 +4,6 @@ package br.appLogin.appLogin.controller;
 import br.appLogin.appLogin.model.Usuario;
 import br.appLogin.appLogin.repository.UsuarioRepository;
 import br.appLogin.appLogin.service.CookieService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.ui.Model;
 import jakarta.servlet.http.HttpServletResponse;
@@ -61,11 +58,7 @@ public class LoginController {
         return "cadastro";
     }
 
-    @Operation (description = "cadastra um novo usuario")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "salva o usuario"),
-            @ApiResponse(responseCode = "400", description = "insira os campos corretamente")
-    })
+
     @RequestMapping(value = "/cadastroUsuario", method = RequestMethod.POST)
     public String cadastroUsuario(@Valid Usuario usuario, BindingResult result) {
 
