@@ -19,7 +19,7 @@ public class LoginInterceptorAppConfig implements WebMvcConfigurer {
                     "/logar",
                     "/error",
                     "/cadastroUsuario",
-                    "/usuario"
+                    "/usuarios"
             );
 
         }
