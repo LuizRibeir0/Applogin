@@ -38,4 +38,14 @@ public class BuscarUsuarios {
     public Usuario buscarPorId(@PathVariable long id){
         return usuarioRepository.findById(id);
     }
+
+    @Operation(description = "deleta o usuario pelo id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "deleta um usuario"),
+            @ApiResponse(responseCode = "400",  description = "não existe usuario com esse id")
+    })
+    @DeleteMapping("/{id}")
+    public void excluir(@PathVariable long id){
+        usuarioRepository.deleteById(String.valueOf(id));
+    }
 }

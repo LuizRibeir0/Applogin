@@ -16,6 +16,7 @@ public interface UsuarioRepository extends CrudRepository<Usuario,String> {
     List<Usuario> findAll();
 
     Usuario findById(long id);
+    Usuario deleteUsuarioById(long id);
 
     @Query(value = "select * from applogin.usuario where email = :email and senha = :senha", nativeQuery = true)
     public Usuario login(String email, String senha);
