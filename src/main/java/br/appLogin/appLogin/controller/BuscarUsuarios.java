@@ -1,16 +1,14 @@
 package br.appLogin.appLogin.controller;
 
+import br.appLogin.appLogin.constants.Descriptions;
+import br.appLogin.appLogin.constants.HttpsResponseCode;
 import br.appLogin.appLogin.model.Usuario;
 import br.appLogin.appLogin.repository.UsuarioRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -22,7 +20,8 @@ public class BuscarUsuarios {
 
     @Operation(description = "lista todos os usuarios")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "lista dos usuarios"),
+            @ApiResponse(responseCode = HttpsResponseCode.HTTP_RESPONSE_CODE_OK,
+                    description = "lista dos usuarios"),
     })
     @GetMapping
     public List<Usuario> listar(){
@@ -31,9 +30,12 @@ public class BuscarUsuarios {
 
     @Operation(description = "lista os usuarios pelo Id")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "lista dos usuarios pelo Id"),
-            @ApiResponse(responseCode = "400", description = "Não existe usuario com esse Id")
+            @ApiResponse(responseCode = HttpsResponseCode.HTTP_RESPONSE_CODE_OK,
+                    description = "lista dos usuarios pelo Id"),
+            @ApiResponse(responseCode = HttpsResponseCode.HTTP_RESPONSE_CODE_NOT_FOUND,
+                    description = Descriptions.DESCRIPTIONS_NOT_USER_ID)
     })
+
     @GetMapping("/{id}")
     public Usuario buscarPorId(@PathVariable long id){
         return usuarioRepository.findById(id);
@@ -41,8 +43,10 @@ public class BuscarUsuarios {
 
     @Operation(description = "deleta o usuario pelo id")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "deleta um usuario"),
-            @ApiResponse(responseCode = "400",  description = "não existe usuario com esse id")
+            @ApiResponse(responseCode = HttpsResponseCode.HTTP_RESPONSE_CODE_OK,
+                    description = "deleta um usuario"),
+            @ApiResponse(responseCode = HttpsResponseCode.HTTP_RESPONSE_CODE_NOT_FOUND,
+                    description = Descriptions.DESCRIPTIONS_NOT_USER_ID)
     })
     @DeleteMapping("/{id}")
     public void excluir(@PathVariable long id){

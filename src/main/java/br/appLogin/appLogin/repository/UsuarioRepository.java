@@ -3,7 +3,6 @@ package br.appLogin.appLogin.repository;
 import br.appLogin.appLogin.model.Usuario;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
