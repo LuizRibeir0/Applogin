@@ -3,6 +3,7 @@ package br.appLogin.appLogin.controller;
 import br.appLogin.appLogin.constants.Descriptions;
 import br.appLogin.appLogin.constants.HttpsResponseCode;
 import br.appLogin.appLogin.model.Usuario;
+import br.appLogin.appLogin.model.UsuarioDTO;
 import br.appLogin.appLogin.repository.UsuarioRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -18,14 +19,24 @@ public class BuscarUsuarios {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    public List<UsuarioDTO> buscarTodosUsuarios() {
+        return usuarioRepository.findAll()
+                .stream()
+                .map(UsuarioDTO::new)
+                .toList();
+    }
+
     @Operation(description = "lista todos os usuarios")
     @ApiResponses(value = {
             @ApiResponse(responseCode = HttpsResponseCode.HTTP_RESPONSE_CODE_OK,
                     description = "lista dos usuarios"),
     })
     @GetMapping
-    public List<Usuario> listar(){
-        return usuarioRepository.findAll();
+    public List<UsuarioDTO> listar(){
+        return usuarioRepository.findAll()
+                .stream()
+                .map(UsuarioDTO::new)
+                .toList();
     }
 
     @Operation(description = "lista os usuarios pelo Id")

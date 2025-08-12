@@ -52,12 +52,10 @@ public class LoginController {
 
     }
 
-
     @GetMapping("/cadastroUsuario")
     public String cadastro () {
         return "cadastro";
     }
-
 
     @RequestMapping(value = "/cadastroUsuario", method = RequestMethod.POST)
     public String cadastroUsuario(@Valid Usuario usuario, BindingResult result) {
@@ -68,5 +66,4 @@ public class LoginController {
         ur.save(usuario);
         return "redirect:/login";
     }
-
 }

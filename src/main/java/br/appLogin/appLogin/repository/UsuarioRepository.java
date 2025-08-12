@@ -1,6 +1,8 @@
 package br.appLogin.appLogin.repository;
 
 import br.appLogin.appLogin.model.Usuario;
+import br.appLogin.appLogin.model.UsuarioDTO;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -9,10 +11,8 @@ import java.util.List;
 
 
 @Repository
-public interface UsuarioRepository extends CrudRepository<Usuario,String> {
+public interface UsuarioRepository extends JpaRepository<Usuario,String> {
 
-    @Override
-    List<Usuario> findAll();
 
     Usuario findById(long id);
     Usuario deleteUsuarioById(long id);
