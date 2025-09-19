@@ -37,7 +37,7 @@ class UsuarioRepositoryTest {
 
         Usuario usuariomockado = usuarioRepository.login("luiz@gmail.com", "123");
 
-        assertNotNull(usuarioMock);
+        assertNotNull(usuariomockado);
         assertEquals("Luiz", usuarioMock.getNome());
         verify(usuarioRepository, times(1)).login("luiz@gmail.com", "123");
     }

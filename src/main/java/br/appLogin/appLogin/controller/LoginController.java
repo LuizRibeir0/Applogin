@@ -2,13 +2,12 @@ package br.appLogin.appLogin.controller;
 
 
 import br.appLogin.appLogin.model.Usuario;
-import br.appLogin.appLogin.repository.UsuarioRepository;
 import br.appLogin.appLogin.service.CookieService;
+import br.appLogin.appLogin.service.UsuarioService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.ui.Model;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,11 +20,15 @@ import java.io.UnsupportedEncodingException;
 @Controller
 public class LoginController {
 
-    @Autowired
-    private CookieService cookieService;
+    private final UsuarioService usuarioService;
 
-    @Autowired
-    private UsuarioRepository ur;
+    private final CookieService cookieService;
+
+    public LoginController(UsuarioService usuarioService, CookieService cookieService) {
+        this.usuarioService = usuarioService;
+        this.cookieService = cookieService;
+    }
+
 
     @GetMapping("/login")
     public String login () {
@@ -40,7 +43,7 @@ public class LoginController {
 
     @PostMapping("/logar")
     public String loginUsuario (Usuario usuario, Model model, HttpServletResponse response) throws UnsupportedEncodingException {
-        Usuario user = this.ur.login(usuario.getEmail(), usuario.getSenha());
+        Usuario user = this.usuarioService.login(usuario.getEmail(), usuario.getSenha());
         if (user != null) {
             cookieService.setCookie(response,"usuarioId", String.valueOf(user.getId()), 10000);
             cookieService.setCookie(response,"nomeUsuario", String.valueOf(user.getNome()), 10000);
@@ -49,7 +52,6 @@ public class LoginController {
 
         model.addAttribute("erro", "usuario invalido!");
         return "login";
-
     }
 
     @GetMapping("/cadastroUsuario")
@@ -63,7 +65,7 @@ public class LoginController {
         if (result.hasErrors()) {
             return "redirect:/cadastroUsuario";
         }
-        ur.save(usuario);
+        usuarioService.save(usuario);
         return "redirect:/login";
     }
 }

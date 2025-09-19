@@ -17,6 +17,10 @@ public class UsuarioDTO {
     public UsuarioDTO(UsuarioDTO usuarioDTO) {
     }
 
+    public UsuarioDTO(Object o) {
+
+    }
+
     public long getId() {
         return Id;
     }

@@ -8,7 +8,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class LoginInterceptorAppConfig implements WebMvcConfigurer {
 
-
         @Autowired
         private LoginInterceptor loginInterceptor;
 
@@ -19,12 +18,8 @@ public class LoginInterceptorAppConfig implements WebMvcConfigurer {
                     "/logar",
                     "/error",
                     "/cadastroUsuario",
-                    "/usuarios"
+                    "/usuarios",
+                    "/swagger-ui/index.html"
             );
-
         }
-
-
-
-
 }

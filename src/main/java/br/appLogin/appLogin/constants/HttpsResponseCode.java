@@ -1,7 +1,11 @@
 package br.appLogin.appLogin.constants;
 
-public interface HttpsResponseCode {
+public final class HttpsResponseCode {
 
-    String HTTP_RESPONSE_CODE_OK = "200";
-    String HTTP_RESPONSE_CODE_NOT_FOUND = "400";
+    private HttpsResponseCode() {
+        throw new UnsupportedOperationException("This is a constant class and cannot be instantiated");
+    }
+
+    public static final String HTTP_RESPONSE_CODE_OK = "200";
+    public static final String HTTP_RESPONSE_CODE_NOT_FOUND = "400";
 }
